@@ -14,6 +14,14 @@ require('laravel-elixir-vue-2');
  */
 
 elixir((mix) => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+    mix.sass([
+        'bootstrap.scss',
+        '../../../bower_components/tether/dist/css/tether.css',
+    ], 'public/css/vendor.sass.css')
+        .scripts([
+            '../../../bower_components/jquery/dist/jquery.js',
+            '../../../bower_components/tether/dist/js/tether.js',
+            '../../../bower_components/bootstrap/dist/js/bootstrap.js',
+        ], 'public/js/vendor.js')
+    ;
 });
